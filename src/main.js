@@ -4,15 +4,40 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'muse-ui/lib/styles/base.less'
-import { Button, Select } from 'muse-ui'
 import 'muse-ui/lib/styles/theme.less'
+import 'muse-ui-message/dist/muse-ui-message.css'
+import Message from 'muse-ui-message'
 import App from './App'
 import router from './router'
+
+import { 
+  Button, 
+  Select,
+  AppBar,
+  Icon,
+  Drawer,
+  List,
+  Grid,
+  GridList,
+  Form,
+  TextField,
+  Dialog
+} from 'muse-ui'
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(Button)
 Vue.use(Select)
+Vue.use(AppBar)
+Vue.use(Icon)
+Vue.use(Drawer)
+Vue.use(List)
+Vue.use(Grid)
+Vue.use(GridList)
+Vue.use(Form)
+Vue.use(TextField)
+Vue.use(Message)
+Vue.use(Dialog)
 
 /* eslint-disable no-new */
 new Vue({
