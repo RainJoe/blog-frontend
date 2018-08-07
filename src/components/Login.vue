@@ -2,8 +2,8 @@
   <div>
     <mu-flex class="flex-wrapper" justify-content="center">
       <mu-form ref="form" :model="validateForm" class="mu-demo-form">
-        <mu-form-item label="用户名" help-text="帮助文字" prop="username" :rules="usernameRules">
-          <mu-text-field v-model="validateForm.username" prop="username"></mu-text-field>
+        <mu-form-item label="邮箱" help-text="填写注册邮箱" prop="email" :rules="emailRules">
+          <mu-text-field v-model="validateForm.email" prop="email"></mu-text-field>
         </mu-form-item>
         <mu-form-item label="密码" prop="password" :rules="passwordRules">
             <mu-text-field type="password" v-model="validateForm.password" prop="password"></mu-text-field>
@@ -22,7 +22,7 @@ export default {
   name: "Login",
   data () {
     return {
-      usernameRules: [
+      emailRules: [
         { validate: (val) => !!val, message: '必须填写用户名'},
         { validate: (val) => val.length >= 3, message: '用户名长度大于3'}
       ],
@@ -31,7 +31,7 @@ export default {
         { validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
       ],
       validateForm: {
-        username: '',
+        email: '',
         password: '',
       }  
     }
@@ -39,17 +39,12 @@ export default {
   methods: {
     submit () {
       this.$refs.form.validate().then((result) => {
-        this.$http({
-          url: '/api/sessions',
-          method: 'POST',
-          data: {email: this.validateForm.username, password: this.validateForm.password}
-        }).then(response => {
-          console.log(response.data)
+        this.$store.dispatch('Login', this.validateForm).then(() => {
           this.$router.push({path: '/'})
         }).catch(error => {
-          this.$alert(error.response.data.message, 'Login Failed')
+          console.log(error)
         })
-      });
+      })
     },
     clear () {
       this.$refs.form.clear();

@@ -9,6 +9,7 @@ import 'muse-ui-message/dist/muse-ui-message.css'
 import Message from 'muse-ui-message'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import { 
   Button, 
@@ -43,6 +44,7 @@ Vue.use(Dialog)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
