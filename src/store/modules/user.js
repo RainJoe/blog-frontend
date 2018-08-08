@@ -30,6 +30,9 @@ const user = {
                 login(userInfo.email, userInfo.password).then(response => {
                     setToken(response.data.token)
                     commit('SET_TOKEN', response.data.token)
+                    commit('SET_AVATAR', response.data.avatar)
+                    commit('SET_NAME', response.data.name)
+                    commit('SET_ROLE', response.data.is_admin)
                     resolve()
                 }).catch(error => {
                     reject(error)

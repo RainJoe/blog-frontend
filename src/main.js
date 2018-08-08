@@ -6,7 +6,6 @@ import VueAxios from 'vue-axios'
 import 'muse-ui/lib/styles/base.less'
 import 'muse-ui/lib/styles/theme.less'
 import 'muse-ui-message/dist/muse-ui-message.css'
-import Message from 'muse-ui-message'
 import App from './App'
 import router from './router'
 import store from './store'
@@ -22,7 +21,8 @@ import {
   GridList,
   Form,
   TextField,
-  Dialog
+  Dialog,
+  Avatar
 } from 'muse-ui'
 
 Vue.config.productionTip = false
@@ -37,8 +37,8 @@ Vue.use(Grid)
 Vue.use(GridList)
 Vue.use(Form)
 Vue.use(TextField)
-Vue.use(Message)
 Vue.use(Dialog)
+Vue.use(Avatar)
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '../store'
 import { getToken } from '@/utils/auth'
+import Message from 'muse-ui-message'
 
 
 const service = axios.create({
@@ -14,8 +15,19 @@ service.interceptors.request.use(config => {
     }
     return config
 }, error => {
-    console.log(error)
+    Message.alert('请求失败!!!', '提示')
     Promise.reject(error)
 })
 
+service.interceptors.response.use(
+    response => {
+        return response
+    },
+    error => {
+        if (error.response.data.status == 404) {
+            Message.alert('资源不存在', '提示')
+        }
+        return Promise.reject(error)
+    }
+)
 export default service

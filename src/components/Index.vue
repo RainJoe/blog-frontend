@@ -5,7 +5,10 @@
         <mu-icon value="menu"></mu-icon>
       </mu-button>
       Rare
-      <mu-button flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
+      <mu-button v-if="!$store.getters.token" flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
+      <mu-avatar v-else :size="50" slot="right">
+        <img :src="$store.getters.avatar">
+      </mu-avatar>
     </mu-appbar>
 
     <mu-drawer :open.sync="open" :docked="false">
