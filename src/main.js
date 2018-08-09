@@ -22,7 +22,8 @@ import {
   Form,
   TextField,
   Dialog,
-  Avatar
+  Avatar,
+  Menu
 } from 'muse-ui'
 
 Vue.config.productionTip = false
@@ -39,6 +40,7 @@ Vue.use(Form)
 Vue.use(TextField)
 Vue.use(Dialog)
 Vue.use(Avatar)
+Vue.use(Menu)
 
 /* eslint-disable no-new */
 new Vue({

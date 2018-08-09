@@ -1,4 +1,4 @@
-import { login } from '@/api/login'
+import { login, logout } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 
@@ -33,6 +33,20 @@ const user = {
                     commit('SET_AVATAR', response.data.avatar)
                     commit('SET_NAME', response.data.name)
                     commit('SET_ROLE', response.data.is_admin)
+                    resolve()
+                }).catch(error => {
+                    reject(error)
+                })
+            })
+        },
+        Logout({commit})  {
+            return new Promise((resolve, reject) => {
+                logout().then(response => {
+                    commit('SET_TOKEN', '')
+                    commit('SET_NAME', '')
+                    commit('SET_AVATAR', '')
+                    commit('SET_ROLE', false)
+                    removeToken()
                     resolve()
                 }).catch(error => {
                     reject(error)

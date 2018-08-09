@@ -11,3 +11,10 @@ export function login(email, password) {
         }
     })
 }
+
+export function logout() {
+    return request({
+        url: '/sessions',
+        method: 'DELETE'
+    })
+}
