@@ -22,12 +22,21 @@
         </mu-appbar>
 
         <mu-drawer :open.sync="open" :docked="false">
+          <div class="drawer-header">
+            Rare's Blog
+          </div>
         <mu-list>
-            <mu-list-item button>
-            <mu-list-item-title>Menu Item 1</mu-list-item-title>
+            <mu-list-item button @click="$router.push({path: '/admin/users'})">
+            <mu-list-item-title>用户管理</mu-list-item-title>
             </mu-list-item>
             <mu-list-item button>
-            <mu-list-item-title>Menu Item 2</mu-list-item-title>
+            <mu-list-item-title>文章管理</mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item button>
+            <mu-list-item-title>分类管理</mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item button>
+            <mu-list-item-title>评论管理</mu-list-item-title>
             </mu-list-item>
         </mu-list>
         </mu-drawer>
@@ -53,3 +62,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.drawer-header {
+  height: 64px;
+  line-height: 64px;
+  margin-left: 18px;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 1px solid #eeeeee;
+}
+</style>
