@@ -1,10 +1,11 @@
 import Vue from 'vue'
+import store from '../store'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Admin from '@/components/Admin'
 import User from '@/components/User'
-import store from '../store'
+import Article from '@/components/Article'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
           path: 'users',
           name: 'User',
           component: User
+        },
+        {
+          path: 'articles',
+          name: 'Article',
+          component: Article
         }
       ]
     }

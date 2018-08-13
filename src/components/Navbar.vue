@@ -5,7 +5,7 @@
             <mu-icon value="menu"></mu-icon>
         </mu-button>
         Rare
-        <mu-button v-if="!$store.getters.token" flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
+        <mu-button v-if="!$store.getters.avatar" flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
         <mu-menu v-else cover open-on-hover slot="right">
             <!-- <mu-avatar size="64">
             <img :src="$store.getters.avatar">
@@ -25,30 +25,21 @@
           <div class="drawer-header">
             Rare's Blog
           </div>
-        <mu-list>
-            <mu-list-item button @click="$router.push({path: '/admin/users'})">
-            <mu-list-item-title>用户管理</mu-list-item-title>
-            </mu-list-item>
-            <mu-list-item button>
-            <mu-list-item-title>文章管理</mu-list-item-title>
-            </mu-list-item>
-            <mu-list-item button>
-            <mu-list-item-title>分类管理</mu-list-item-title>
-            </mu-list-item>
-            <mu-list-item button>
-            <mu-list-item-title>评论管理</mu-list-item-title>
-            </mu-list-item>
-        </mu-list>
+          <admin-side-list v-if="isAdminList"></admin-side-list>
+          <index-side-list v-else></index-side-list>
         </mu-drawer>
     </div>
 </template>
 
 <script>
+import AdminSideList from '@/components/AdminSideList.vue'
+import IndexSideList from '@/components/IndexSideList.vue'
 export default {
   name: "Header",
   data() {
     return {
-      open: false
+      open: false,
+      isAdminList: this.$route.path.includes('/admin')
     }
   },
   methods: {
@@ -59,6 +50,10 @@ export default {
         console.log(error)
       })
     }
+  },
+  components: {
+    AdminSideList,
+    IndexSideList
   }
 }
 </script>
