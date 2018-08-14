@@ -1,34 +1,38 @@
 import { login, logout } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { 
+    getToken, setToken, removeToken,
+    getName, setName, removeName,
+    getAvatar, setAvatar, removeAvatar,
+    getRole, setRole, removeRole
+} from '@/utils/auth'
 
 
 const user = {
     state: {
         token: getToken(),
-        name: '',
-        avatar: '',
-        is_admin: false
+        name: getName(),
+        avatar: getAvatar(),
+        is_admin: getRole()
     },
 
     mutations: {
         SET_TOKEN: (state, token) => {
-            state.token = token
+            setToken(token)
         },
         SET_NAME: (state, name) => {
-            state.name = name
+            setName(name)
         },
         SET_AVATAR: (state, avatar) => {
-            state.avatar = avatar
+            setAvatar(avatar)
         },
         SET_ROLE: (state, is_admin) => {
-            state.is_admin = is_admin
+            setRole(is_admin)
         }
     },
     actions: {
         Login({commit}, userInfo) {
             return new Promise((resolve, reject) => {
                 login(userInfo.email, userInfo.password).then(response => {
-                    setToken(response.data.token)
                     commit('SET_TOKEN', response.data.token)
                     commit('SET_AVATAR', response.data.avatar)
                     commit('SET_NAME', response.data.name)
