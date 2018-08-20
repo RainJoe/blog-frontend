@@ -24,7 +24,9 @@ import {
   Dialog,
   Avatar,
   Menu,
-  DataTable
+  DataTable,
+  Card,
+  Pagination
 } from 'muse-ui'
 
 Vue.config.productionTip = false
@@ -43,6 +45,8 @@ Vue.use(Dialog)
 Vue.use(Avatar)
 Vue.use(Menu)
 Vue.use(DataTable)
+Vue.use(Card)
+Vue.use(Pagination)
 
 /* eslint-disable no-new */
 new Vue({
