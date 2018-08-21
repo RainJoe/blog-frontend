@@ -7,6 +7,7 @@ import Admin from '@/components/Admin'
 import User from '@/components/User'
 import Article from '@/components/Article'
 import ArticleAddEdit from '@/components/ArticleAddEdit'
+import Detail from '@/components/Detail'
 
 Vue.use(Router)
 
@@ -55,6 +56,11 @@ export default new Router({
           component: ArticleAddEdit
         }
       ]
+    },
+    {
+      path:'/article/:id',
+      name: 'articleDetail',
+      component: Detail
     }
   ]
 })

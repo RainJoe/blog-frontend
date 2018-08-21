@@ -14,6 +14,7 @@
         <mu-card-title :title="article.title"></mu-card-title>
         <mu-card-text>
           {{ article.desc}}
+          <router-link :to="{ name: 'articleDetail', params: { id: article.id}}">继续阅读</router-link>
         </mu-card-text>
       </mu-card>
       <mu-flex justify-content="center">

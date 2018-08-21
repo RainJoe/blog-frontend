@@ -48,6 +48,13 @@ Vue.use(DataTable)
 Vue.use(Card)
 Vue.use(Pagination)
 
+Vue.directive('highlight',function (el) {
+  let blocks = el.querySelectorAll('pre code');
+  blocks.forEach((block)=>{
+    hljs.highlightBlock(block)
+  })
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
