@@ -16,4 +16,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+code, kbd, pre, samp {
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+}
 </style>
