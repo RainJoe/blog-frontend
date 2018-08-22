@@ -4,7 +4,7 @@
         <mu-button icon slot="left" @click="open = !open">
             <mu-icon value="menu"></mu-icon>
         </mu-button>
-        Rare
+        <router-link :to="{name: 'Index'}">Rare</router-link>
         <mu-button v-if="!$store.getters.avatar" flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
         <mu-menu v-else cover open-on-hover slot="right">
             <!-- <mu-avatar size="64">
