@@ -40,7 +40,8 @@ export default {
     submit () {
       this.$refs.form.validate().then((result) => {
         this.$store.dispatch('Login', this.validateForm).then(() => {
-          this.$router.push({path: '/'})
+          this.$router.push({name: 'Index'})
+          location.reload()
         }).catch(error => {
           console.log(error)
         })

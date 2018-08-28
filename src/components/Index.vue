@@ -44,7 +44,6 @@ export default {
         this.allArticles = response.data.posts
         this.count = response.data.count
         this.articles = this.allArticles.slice((this.current-1)*this.pageSize, this.current*this.pageSize)
-        console.log(articles)
       }).catch(error => {
         console.log(error)
       })

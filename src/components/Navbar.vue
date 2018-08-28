@@ -5,8 +5,7 @@
             <mu-icon value="menu"></mu-icon>
         </mu-button>
         <router-link :to="{name: 'Index'}">Rare</router-link>
-        <mu-button v-if="!$store.getters.avatar" flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
-        <mu-menu v-else cover open-on-hover slot="right">
+        <mu-menu v-if="avatar" cover open-on-hover slot="right">
             <!-- <mu-avatar size="64">
             <img :src="$store.getters.avatar">
             </mu-avatar> -->
@@ -19,6 +18,7 @@
             </mu-list-item>
             </mu-list>
         </mu-menu>
+        <mu-button v-else flat slot="right" @click="$router.push({path: '/login'})">登录</mu-button>
         </mu-appbar>
 
         <mu-drawer :open.sync="open" :docked="false">
@@ -34,18 +34,20 @@
 <script>
 import AdminSideList from '@/components/AdminSideList.vue'
 import IndexSideList from '@/components/IndexSideList.vue'
+import {mapGetters} from 'vuex'
 export default {
   name: "Header",
   data() {
     return {
       open: false,
-      isAdminList: this.$route.path.includes('/admin')
+      isAdminList: this.$route.path.includes('/admin'),
+      hide: this.avatar
     }
   },
   methods: {
     logout () {
       this.$store.dispatch('Logout').then(() => {
-        this.$router.push({path: '/'})
+        location.reload()
       }).catch(error => {
         console.log(error)
       })
@@ -54,6 +56,11 @@ export default {
   components: {
     AdminSideList,
     IndexSideList
+  },
+  computed: {
+    ...mapGetters([
+      'avatar'
+    ])
   }
 }
 </script>
@@ -62,7 +69,7 @@ export default {
 .drawer-header {
   height: 64px;
   line-height: 64px;
-  margin-left: 18px;
+  padding-left: 50px;
   font-size: 24px;
   font-weight: bold;
   border-bottom: 1px solid #eeeeee;

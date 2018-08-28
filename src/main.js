@@ -9,6 +9,8 @@ import 'muse-ui-message/dist/muse-ui-message.css'
 import App from './App'
 import router from './router'
 import store from './store'
+import { theme } from 'muse-ui'
+import { carbon, createTheme } from 'muse-ui-carbon-theme/src'
 
 import { 
   Button, 
@@ -55,6 +57,7 @@ Vue.directive('highlight',function (el) {
   })
 })
 
+theme.add('carbon', carbon).addCreateTheme(createTheme).use('carbon')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

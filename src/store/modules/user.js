@@ -51,6 +51,9 @@ const user = {
                     commit('SET_AVATAR', '')
                     commit('SET_ROLE', false)
                     removeToken()
+                    removeAvatar()
+                    removeName()
+                    removeRole()
                     resolve()
                 }).catch(error => {
                     reject(error)
