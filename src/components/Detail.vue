@@ -77,6 +77,9 @@ export default {
   width: 56%;
   margin: auto;
   margin-top: 100px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 .article-comment {
   width: 56%;

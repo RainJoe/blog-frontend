@@ -11,6 +11,7 @@ import router from './router'
 import store from './store'
 import { theme } from 'muse-ui'
 import { carbon, createTheme } from 'muse-ui-carbon-theme/src'
+// import 'iview/dist/styles/iview.css'
 
 import { 
   Button, 
@@ -31,6 +32,12 @@ import {
   Pagination
 } from 'muse-ui'
 
+import {
+  Timeline,
+  TimelineItem
+} from 'iview'
+
+
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(Button)
@@ -49,6 +56,8 @@ Vue.use(Menu)
 Vue.use(DataTable)
 Vue.use(Card)
 Vue.use(Pagination)
+Vue.component('Timeline', Timeline)
+Vue.component('TimelineItem', TimelineItem)
 
 Vue.directive('highlight',function (el) {
   let blocks = el.querySelectorAll('pre code');

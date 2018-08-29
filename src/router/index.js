@@ -8,6 +8,8 @@ import User from '@/components/User'
 import Article from '@/components/Article'
 import ArticleAddEdit from '@/components/ArticleAddEdit'
 import Detail from '@/components/Detail'
+import Archive from '@/components/Archive'
+import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -61,6 +63,16 @@ export default new Router({
       path:'/article/:id',
       name: 'articleDetail',
       component: Detail
+    },
+    {
+      path: '/archive',
+      name: 'archive',
+      component: Archive
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     }
   ]
 })
