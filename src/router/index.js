@@ -3,6 +3,7 @@ import store from '../store'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 import Admin from '@/components/Admin'
 import User from '@/components/User'
 import Article from '@/components/Article'
@@ -24,6 +25,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     },
     {
       beforeEnter(to, from, next) {

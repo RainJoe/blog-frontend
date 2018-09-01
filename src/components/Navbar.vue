@@ -5,13 +5,12 @@
             <mu-icon value="menu"></mu-icon>
         </mu-button>
         <router-link :to="{name: 'Index'}">Rare</router-link>
-        <mu-menu v-if="avatar" cover open-on-hover slot="right">
-            <!-- <mu-avatar size="64">
-            <img :src="$store.getters.avatar">
-            </mu-avatar> -->
-            <mu-button icon>
-            <mu-icon value="more_vert"></mu-icon>
-            </mu-button>
+        <mu-menu v-if="avatar" placement="bottom-start" open-on-hover slot="right">
+            <div style="margin-top: 8px;">
+              <mu-avatar :size="48">
+                <img :src="avatar">
+              </mu-avatar>
+            </div>
             <mu-list slot="content">
             <mu-list-item button @click="logout">
                 <mu-list-item-title>退出登录</mu-list-item-title>

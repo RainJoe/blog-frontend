@@ -18,3 +18,15 @@ export function logout() {
         method: 'DELETE'
     })
 }
+
+export function register(email, name, password) {
+    return request({
+        url: '/users',
+        method: 'POST',
+        data: {
+            email,
+            name,
+            password
+        }
+    })
+}
