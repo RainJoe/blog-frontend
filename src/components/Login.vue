@@ -1,7 +1,6 @@
 <template>
   <div class="login-page">
       <mu-flex class="flex-wrapper" justify-content="center" style="padding-top: 200px;">
-        <mu-flex>
           <mu-form ref="form" :model="validateForm" class="mu-demo-form">
             <mu-form-item label="邮箱" help-text="填写注册邮箱" prop="email" :rules="emailRules">
               <mu-text-field v-model="validateForm.email" prop="email"></mu-text-field>
@@ -14,10 +13,9 @@
             </mu-form-item>
             <mu-form-item>
               <mu-button color="primary" @click="submit">提交</mu-button>
-              <mu-button @click="clear" style="margin-left: 290px;">重置</mu-button>
+              <mu-button @click="clear" style="margin-left: 200px;">重置</mu-button>
             </mu-form-item>
           </mu-form>
-        </mu-flex>
       </mu-flex>
   </div>
 </template>
@@ -47,8 +45,7 @@ export default {
       this.$refs.form.validate().then((result) => {
         if (result) {
           this.$store.dispatch('Login', this.validateForm).then(() => {
-            this.$router.push({name: 'Index'})
-            location.reload()
+            this.$router.back(-1)
           }).catch(error => {
             if (error.response.status === 404) {
               // Message.alert('用户不存在', '提示')
@@ -77,6 +74,10 @@ export default {
 .login-page {
   height: 1080px;
   background: #eeeeee;
+}
+.mu-demo-form {
+  width: 100%;
+  max-width: 460px;
 }
 </style>
 

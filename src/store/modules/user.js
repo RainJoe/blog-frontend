@@ -17,22 +17,26 @@ const user = {
 
     mutations: {
         SET_TOKEN: (state, token) => {
-            setToken(token)
+            state.token = token
         },
         SET_NAME: (state, name) => {
-            setName(name)
+            state.name = name
         },
         SET_AVATAR: (state, avatar) => {
-            setAvatar(avatar)
+            state.avatar = avatar
         },
         SET_ROLE: (state, is_admin) => {
-            setRole(is_admin)
+            state.is_admin = is_admin
         }
     },
     actions: {
         Login({commit}, userInfo) {
             return new Promise((resolve, reject) => {
                 login(userInfo.email, userInfo.password).then(response => {
+                    setToken(response.data.token)
+                    setName(response.data.name)
+                    setAvatar(response.data.avatar)
+                    setRole(response.data.is_admin)
                     commit('SET_TOKEN', response.data.token)
                     commit('SET_AVATAR', response.data.avatar)
                     commit('SET_NAME', response.data.name)

@@ -35,7 +35,6 @@ export default {
     fetchData() {
       getArchive().then(response => {
         this.archives = response.data
-        console.log(this.archives)
       })
     },
     handleIndex() {

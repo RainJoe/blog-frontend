@@ -6,7 +6,7 @@
         </mu-button>
         <router-link :to="{name: 'Index'}">Rare</router-link>
         <mu-menu v-if="avatar" placement="bottom-start" open-on-hover slot="right">
-            <div style="margin-top: 8px;">
+            <div class="img-content">
               <mu-avatar :size="48">
                 <img :src="avatar">
               </mu-avatar>
@@ -72,5 +72,10 @@ export default {
   font-size: 24px;
   font-weight: bold;
   border-bottom: 1px solid #eeeeee;
+}
+.img-content {
+  height: inherit;
+  display: flex;
+  align-items: center;  
 }
 </style>

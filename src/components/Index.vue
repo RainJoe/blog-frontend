@@ -1,26 +1,30 @@
 <template>
   <div>
     <navbar></navbar>
-    <div>
-      <mu-card v-for="article in articles" :key="article.id" style="width: 56%; margin: auto">
-        <mu-card-header :title="article.author" :sub-title="article.created_time">
-          <mu-avatar slot="avatar">
-            <img :src="article.author_avatar">
-          </mu-avatar>
-        </mu-card-header>
-        <mu-card-media>
-          <img :src="article.img.url">
-        </mu-card-media>
-        <mu-card-title :title="article.title"></mu-card-title>
-        <mu-card-text>
-          {{ article.desc}}
-          <router-link :to="{ name: 'articleDetail', params: { id: article.id}}">继续阅读</router-link>
-        </mu-card-text>
-      </mu-card>
+    <mu-row>
       <mu-flex justify-content="center">
-        <mu-pagination :total="count" :current.sync="current" :page-size="pageSize" @change="pageChange"></mu-pagination>
+        <mu-col sm="12" md="10" lg="7" xl="7">
+          <mu-card v-for="article in articles" :key="article.id" style="margin-top: 8px;">
+            <mu-card-header :title="article.author" :sub-title="article.created_time">
+              <mu-avatar slot="avatar">
+                <img :src="article.author_avatar">
+              </mu-avatar>
+            </mu-card-header>
+            <mu-card-media>
+              <img :src="article.img.url">
+            </mu-card-media>
+            <mu-card-title :title="article.title"></mu-card-title>
+            <mu-card-text>
+              {{ article.desc}}
+              <router-link :to="{ name: 'articleDetail', params: { id: article.id}}">继续阅读</router-link>
+            </mu-card-text>
+          </mu-card>
+          <mu-flex justify-content="center">
+            <mu-pagination :total="count" :current.sync="current" :page-size="pageSize" @change="pageChange"></mu-pagination>
+          </mu-flex>
+        </mu-col>
       </mu-flex>
-    </div>
+    </mu-row>
   </div>
 </template>
 
