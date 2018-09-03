@@ -13,7 +13,7 @@
             </mu-form-item>
             <mu-form-item>
               <mu-button color="primary" @click="submit">提交</mu-button>
-              <mu-button @click="clear" style="margin-left: 200px;">重置</mu-button>
+              <mu-button @click="clear">重置</mu-button>
             </mu-form-item>
           </mu-form>
       </mu-flex>
@@ -45,7 +45,7 @@ export default {
       this.$refs.form.validate().then((result) => {
         if (result) {
           this.$store.dispatch('Login', this.validateForm).then(() => {
-            this.$router.back(-1)
+              this.$router.back(-1)
           }).catch(error => {
             if (error.response.status === 404) {
               // Message.alert('用户不存在', '提示')

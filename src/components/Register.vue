@@ -16,7 +16,7 @@
             </mu-form-item>
             <mu-form-item>
               <mu-button color="primary" @click="submit">提交</mu-button>
-              <mu-button @click="clear" style="margin-left: 200px;">重置</mu-button>
+              <mu-button @click="clear">重置</mu-button>
             </mu-form-item>
           </mu-form>
       </mu-flex>
@@ -54,8 +54,8 @@ export default {
     submit () {
       this.$refs.form.validate().then((result) => {
           if (result) {
-            register(this.validateForm.email, this.validateForm.name, this.validateForm.password).then(response => {
-              this.$router.back(-1)
+            register(this.validateForm.email, this.validateForm.name, this.validateForm.password).then(() => {
+                this.$router.back(-1)
             }).catch(error => {
                 if (error.response.status == 409) {
                     Message.alert('邮箱已被注册', '提示')
