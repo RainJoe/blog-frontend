@@ -11,12 +11,8 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 code, kbd, pre, samp {
     font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+    font-size: 13px;
 }
 </style>
