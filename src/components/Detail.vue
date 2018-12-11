@@ -93,4 +93,7 @@ export default {
 .article-comment {
   margin-top: 100px;
 }
+img {
+  max-width: 800px;
+}
 </style>
