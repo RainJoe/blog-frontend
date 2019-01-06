@@ -76,7 +76,7 @@ export default {
       this.openAlert = false;
     }
   },
-  mounted() {
+  created() {
     this.fetchData()
   }
 }

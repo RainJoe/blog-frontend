@@ -56,7 +56,7 @@ export default {
       this.articles = this.allArticles.slice((this.current-1)*this.pageSize, this.current*this.pageSize)
     }
   },
-  mounted () {
+  created () {
     this.fetchData()
   },
   components: {

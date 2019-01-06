@@ -72,7 +72,7 @@ export default {
       })
     }
   },
-  mounted() {
+  created() {
     if (this.$store.getters.avatar) {
       this.buttonShow = false
     }

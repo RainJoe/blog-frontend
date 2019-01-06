@@ -47,7 +47,7 @@ export default {
       this.$router.push({path: '/about'})
     }
   },
-  mounted() {
+  created() {
     this.fetchData()
   }
 }

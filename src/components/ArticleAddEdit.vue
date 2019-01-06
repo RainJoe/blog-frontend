@@ -104,7 +104,7 @@ export default {
       reader.readAsDataURL(file)
     }
   },
-  mounted () {
+  created () {
     this.fetchData()
   }
 }
